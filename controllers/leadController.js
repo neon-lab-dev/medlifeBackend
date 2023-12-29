@@ -4,17 +4,22 @@ import ErrorHandler from "../utils/errorHandler.js";
 
 //Get all active Leads ---Admin
 export const getAllActiveLeads = catchAsyncError(async (req, res, next) => {
-
   const name = req.query.name || "";
 
-  const leads = await User.find({ status: "Active" ,name: {
-    $regex: name,
-    $options: "i",
-  },});
-  const counts = await User.countDocuments({ status: "Active",name: {
-    $regex: name,
-    $options: "i",
-  }, });
+  const leads = await User.find({
+    status: "Active",
+    name: {
+      $regex: name,
+      $options: "i",
+    },
+  });
+  const counts = await User.countDocuments({
+    status: "Active",
+    name: {
+      $regex: name,
+      $options: "i",
+    },
+  }).sort({ createdAt: -1 });
 
   res.status(200).json({
     success: true,
@@ -26,14 +31,20 @@ export const getAllActiveLeads = catchAsyncError(async (req, res, next) => {
 //Get all connected Leads ---Admin
 export const getAllConnectedLeads = catchAsyncError(async (req, res, next) => {
   const name = req.query.name || "";
-  const users = await User.find({ status: "Connected",name: {
-    $regex: name,
-    $options: "i",
-  }, });
-  const counts = await User.countDocuments({ status: "Connected",name: {
-    $regex: name,
-    $options: "i",
-  }, });
+  const users = await User.find({
+    status: "Connected",
+    name: {
+      $regex: name,
+      $options: "i",
+    },
+  });
+  const counts = await User.countDocuments({
+    status: "Connected",
+    name: {
+      $regex: name,
+      $options: "i",
+    },
+  }).sort({ createdAt: -1 });
 
   res.status(200).json({
     success: true,
@@ -77,7 +88,7 @@ export const getALead = catchAsyncError(async (req, res, next) => {
 
 //update lead status--Admin
 export const updateUserStatus = catchAsyncError(async (req, res, next) => {
-  const  status  = "Connected";
+  const status = "Connected";
 
   const user = await User.findById(req.params.id);
 

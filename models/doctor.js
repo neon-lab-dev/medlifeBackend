@@ -4,6 +4,7 @@ const schema = new mongoose.Schema({
   doctorName: {
     type: String,
     required: [true, "Please Enter your doctor name"],
+    index: true,
   },
   education: {
     type: String,
@@ -16,6 +17,7 @@ const schema = new mongoose.Schema({
   location: {
     type: String,
     required: [true, "Please Enter your doctor location"],
+    index: true,
   },
   diseaseHandle: {
     type: String,
@@ -23,6 +25,7 @@ const schema = new mongoose.Schema({
       true,
       "Please Enter your doctor designation like lyproscopy,gynacalology",
     ],
+    index: true,
   },
   specialization1: {
     type: String,
@@ -49,6 +52,7 @@ const schema = new mongoose.Schema({
   createdAt: {
     type: Date,
     default: Date.now(),
+    index: true,
   },
 });
 

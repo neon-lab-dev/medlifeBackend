@@ -73,7 +73,7 @@ export const getAllDoctors = catchAsyncError(async (req, res, next) => {
       $regex: diseaseHandle,
       $options: "i",
     },
-  });
+  }).sort({ createdAt: -1 }).lean();
 
   const counts = await Doctor.countDocuments({
     doctorName: {
