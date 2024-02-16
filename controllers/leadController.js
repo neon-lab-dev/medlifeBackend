@@ -1,6 +1,7 @@
 import { catchAsyncError } from "../middlewares/catchAsyncErrors.js";
 import { User } from "../models/lead.js";
 import ErrorHandler from "../utils/errorHandler.js";
+import sendEmail from "../utils/sendEmail.js";
 
 //Get all active Leads ---Admin
 export const getAllActiveLeads = catchAsyncError(async (req, res, next) => {
@@ -60,13 +61,31 @@ export const createLeads = catchAsyncError(async (req, res, next) => {
   if (!name || !mobileNumber || !city || !disease)
     return next(new ErrorHandler("Please enter all deatils", 400));
 
-  await User.create({
+  const user = await User.create({
     name,
     email,
     mobileNumber,
     city,
     disease,
   });
+
+  const testEmail = "rishi@gmail.com";
+  const message = `Dear Admin,
+
+New User Details Received:
+
+- Name: ${user.name}
+- Email: ${user.email}
+- Mobile Number: ${user.mobileNumber}
+- City: ${user.city}
+- Disease: ${user.disease}
+
+Please review and take necessary actions accordingly.
+
+Best regards,
+MedlifeEasy`;
+
+  await sendEmail(testEmail, "New Request Recived", message);
 
   res.status(201).json({
     success: true,
