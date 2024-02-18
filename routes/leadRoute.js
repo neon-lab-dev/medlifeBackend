@@ -14,7 +14,7 @@ router.route("/connectedleads").get(isAuthenticated,getAllConnectedLeads);
 router.route("/createlead").post(createLeads);
 
 
-//get a specific---Lead
+//get a specific---Lead-Admin
 router.route("/lead/:id").get(isAuthenticated,getALead).put(updateUserStatus);
 
 export default router;

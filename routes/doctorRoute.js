@@ -20,7 +20,7 @@ router.route("/doctors").get(getAllDoctors);
 //get/update single doctor---Admin
 router
   .route("/doctor/:id")
-  .get(isAuthenticated,getsingleDoctor)
+  .get(getsingleDoctor)
   .put(isAuthenticated,singleUpload, updateDoctorProfile)
   .delete(isAuthenticated,deleteDoctor);
 
