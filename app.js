@@ -22,7 +22,7 @@ app.use(cookieParser());
 
 app.use(
   cors({
-    origin: ["https://medlife-frontend-new.vercel.app","http://localhost:5000","https://tiny-cuchufli-43c437.netlify.app/"],
+    origin: ["https://medlife-frontend-new.vercel.app","http://localhost:3000","https://tiny-cuchufli-43c437.netlify.app/"],
     credentials: true,
     methods: ["GET", "POST", "DELETE", "PUT"],
   })
