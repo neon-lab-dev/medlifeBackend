@@ -137,6 +137,7 @@ export const updateDoctorProfile = catchAsyncError(async (req, res, next) => {
   const file = req.file; // Assuming you are using multer or similar middleware for file uploads
 
   const doctor = await Doctor.findById(req.params.id);
+  if (!doctor) return next(new ErrorHandler("Doctor not found", 400));
 
   // Update textual details
   if (doctorName) doctor.doctorName = doctorName;

@@ -33,12 +33,14 @@ import leads from "./routes/leadRoute.js";
 import review from "./routes/reviewRoute.js";
 import doctor from "./routes/doctorRoute.js";
 import admin from "./routes/adminRoutes.js";
+import blog  from "./routes/blogRoute.js";
 import ErrorMiddleware from "./middlewares/Error.js";
 
 app.use("/api/v1", leads);
 app.use("/api/v1", review);
 app.use("/api/v1", doctor);
 app.use("/api/v1", admin);
+app.use("/api/v1", blog);
 
 export default app;
 

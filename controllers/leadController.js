@@ -85,9 +85,9 @@ Please review and take necessary actions accordingly.
 Best regards,
 MedlifeEasy`;
 
-  await sendEmail(testEmail, "New Request Recived", message);
+await sendEmail(testEmail, "New Request Recived", message);
 
-  res.status(201).json({
+res.status(200).json({
     success: true,
     message: "We Got Your Details, We Will Contact you soon ThankYou",
   });
