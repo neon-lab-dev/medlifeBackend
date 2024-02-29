@@ -12,6 +12,6 @@ router.route("/createblog").post(isAuthenticated, singleUpload, createBlog);
 router.route("/blogs").get(getAllBlogs);
 
 //get a single blog
-router.route("/blog/:id").get(getsingleBlog).delete(deleteBlog).put(updateBlog);
+router.route("/blog/:id").get(getsingleBlog).delete(isAuthenticated,deleteBlog).put(isAuthenticated,singleUpload,updateBlog);
 
 export default router;

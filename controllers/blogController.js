@@ -80,17 +80,21 @@ export const updateBlog = catchAsyncError(async (req, res, next) => {
 
   const blog = await Blog.findById(req.params.id);
 
-  if (!blog) return next(new ErrorHandler("Blog not found", 400));
-  // Update textual details
   if (title) blog.title = title;
   if (about) blog.about = about;
 
-  // Update profile picture
+  if (!blog.avatar) {
+    blog.avatar = {};
+  }
+
   if (file) {
     const fileUri = getDataUri(file);
     const mycloud = await cloudinary.v2.uploader.upload(fileUri.content);
 
-    await cloudinary.v2.uploader.destroy(blog.avatar.public_id);
+    // Destroy existing avatar if present
+    if (blog.avatar.public_id) {
+      await cloudinary.v2.uploader.destroy(blog.avatar.public_id);
+    }
 
     blog.avatar = {
       public_id: mycloud.public_id,
