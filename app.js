@@ -20,16 +20,13 @@ app.use(
 app.use(cookieParser());
 
 
-// app.use(
-//   cors({
-//     origin: "*",
-//     credentials: true,
-//     methods: ["GET", "POST", "DELETE", "PUT"],
-//   })
-// );
-
-app.use(cors());
-
+app.use(
+  cors({
+    origin: ["https://medlife-frontend-new.vercel.app","https://medlifeeasy.vercel.app","http://localhost:3000"],
+    credentials: true,
+    methods: ["GET", "POST", "DELETE", "PUT"],
+  })
+);
 
 //Importing and using Routes
 import leads from "./routes/leadRoute.js";
