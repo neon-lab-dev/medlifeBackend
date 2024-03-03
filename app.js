@@ -20,13 +20,16 @@ app.use(
 app.use(cookieParser());
 
 
-app.use(
-  cors({
-    origin: "*",
-    credentials: true,
-    methods: ["GET", "POST", "DELETE", "PUT"],
-  })
-);
+// app.use(
+//   cors({
+//     origin: "*",
+//     credentials: true,
+//     methods: ["GET", "POST", "DELETE", "PUT"],
+//   })
+// );
+
+app.use(cors());
+
 
 //Importing and using Routes
 import leads from "./routes/leadRoute.js";
