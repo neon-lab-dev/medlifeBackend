@@ -17,7 +17,7 @@ router.route("/reviews").get(getAllReview);
 router.route("/areviews").get(isAuthenticated,getAllAdminReview);
 
 //update review status
-router.route("/reviewstatus/:id").put(isAuthenticated,updateReviewStatus).delete(deleteReview);
+router.route("/reviewstatus/:id").put(updateReviewStatus).delete(deleteReview);
 
 
 

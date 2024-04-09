@@ -12,7 +12,7 @@ router.route("/connectedleads").get(isAuthenticated,getAllConnectedLeads);
 
 //create Leads---user
 router.route("/createlead").post(createLeads);
-
+    
 
 //get a specific---Lead-Admin
 router.route("/lead/:id").get(isAuthenticated,getALead).put(updateUserStatus);
