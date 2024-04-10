@@ -16,7 +16,7 @@ const schema = new mongoose.Schema({
   },
   role: {
     type: String,
-    default: "Role",
+    default: "admin",
   },
   createdAt: {
     type: Date,
