@@ -22,7 +22,7 @@ app.use(cookieParser());
 
 app.use(
   cors({
-    origin: ["https://medlife-frontend-new.vercel.app","https://medlifeeasy.vercel.app","http://localhost:3000"],
+    origin: ["https://medlife-frontend-new.vercel.app","https://medlifeeasy.vercel.app","http://localhost:3000","http://localhost:5173","https://medlife-admin-panel.vercel.app"],
     credentials: true,
     methods: ["GET", "POST", "DELETE", "PUT"],
   })
@@ -44,6 +44,6 @@ app.use("/api/v1", blog);
 
 export default app;
 
-app.get("/", (req, res) => res.send(`<h1>Site is working</h1>`));
+app.get("/", (req, res) => res.send(`<h1>Welcome To Medlife backend</h1>`));
 
 app.use(ErrorMiddleware);

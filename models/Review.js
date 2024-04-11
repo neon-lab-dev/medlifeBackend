@@ -28,6 +28,10 @@ const schema = new mongoose.Schema({
   disease: {
     type: String,
   },
+  status:{
+    type:String,
+    default:"NotActive"
+  },
   createdAt: {
     type: Date,
     default: Date.now(),

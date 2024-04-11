@@ -61,7 +61,7 @@ export const createLeads = catchAsyncError(async (req, res, next) => {
   if (!name || !mobileNumber || !city || !disease)
     return next(new ErrorHandler("Please enter all deatils", 400));
 
-  const user = await User.create({
+  await User.create({
     name,
     email,
     mobileNumber,
@@ -69,23 +69,23 @@ export const createLeads = catchAsyncError(async (req, res, next) => {
     disease,
   });
 
-  const testEmail = "rishi@gmail.com";
-  const message = `Dear Admin,
+//   const testEmail = "rishi@gmail.com";
+//   const message = `Dear Admin,
 
-New User Details Received:
+// New User Details Received:
 
-- Name: ${user.name}
-- Email: ${user.email}
-- Mobile Number: ${user.mobileNumber}
-- City: ${user.city}
-- Disease: ${user.disease}
+// - Name: ${user.name}
+// - Email: ${user.email}
+// - Mobile Number: ${user.mobileNumber}
+// - City: ${user.city}
+// - Disease: ${user.disease}
 
-Please review and take necessary actions accordingly.
+// Please review and take necessary actions accordingly.
 
-Best regards,
-MedlifeEasy`;
+// Best regards,
+// MedlifeEasy`;
 
-await sendEmail(testEmail, "New Request Recived", message);
+// await sendEmail(testEmail, "New Request Recived", message);
 
 res.status(200).json({
     success: true,
