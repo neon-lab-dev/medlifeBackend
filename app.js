@@ -44,6 +44,6 @@ app.use("/api/v1", blog);
 
 export default app;
 
-app.get("/", (req, res) => res.send(`<h1>Site is working</h1>`));
+app.get("/", (req, res) => res.send(`<h1>Welcome To Medlife</h1>`));
 
 app.use(ErrorMiddleware);
