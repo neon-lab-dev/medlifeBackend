@@ -22,7 +22,7 @@ app.use(cookieParser());
 
 app.use(
   cors({
-    origin: ["https://medlife-frontend-new.vercel.app","https://medlifeeasy.vercel.app","http://localhost:3000","http://localhost:5173","https://medlife-admin-panel.vercel.app","https://www.melifeeasy.com","www.medlifeeasy.com","https://medlifeeasy.com"],
+    origin: ["https://medlife-frontend-new.vercel.app","https://medlifeeasy.vercel.app","http://localhost:3000","http://localhost:5173","https://medlife-admin-panel.vercel.app","https://www.medlifeeasy.com","www.medlifeeasy.com","https://medlifeeasy.com"],
     credentials: true,
     methods: ["GET", "POST", "DELETE", "PUT"],
   })
